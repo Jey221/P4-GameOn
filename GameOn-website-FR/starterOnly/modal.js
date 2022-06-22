@@ -12,6 +12,9 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 let closeBtn = document.querySelectorAll(".close-btn");
+let data = document.querySelectorAll(".formData");
+let checkboxLocation = document.querySelectorAll(".checkbox-input");
+let valid = true;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -24,5 +27,6 @@ function launchModal2() {
   modalbg.style.display = "none";
 }
 // close button event 
-  closeBtn.forEach((btn) => btn.addEventListener("click", launchModal2))
-
+closeBtn.forEach((btn) => btn.addEventListener("click", launchModal2))
+// validate form
+console.log(checkboxLocation)
