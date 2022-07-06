@@ -14,7 +14,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -208,6 +207,15 @@ input {
   font-size: 20px;
   height: 48px;
 }
+.invalid {
+  font-size: 0.4em;
+  color: #e54858;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  transition: 0.3s;
+}
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -226,6 +234,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -527,3 +536,17 @@ footer {
   }
 }
 
+/* Merci Page */
+.merci-page {
+  display: none;
+}
+.merci-page p {
+    margin-bottom: 60%;
+    margin-top: 4%;
+    margin-left: 19%;
+}
+
+.merci-page button{
+  margin-left: 39%;
+  margin-bottom: 5%;
+}
