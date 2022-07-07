@@ -31,27 +31,50 @@ closeBtn.forEach((btn) => btn.addEventListener("click", launchModal2))
 
 
 // form validate
-//let form = document.getElementById('frmData'); //mise en place variable sur le formulaire
 //let fields = document.querySelectorAll('input[required]');// mise en place d'une variable pour les diff element à valider
 //let valid =true;
 
+//mise en place des variable du formulaire
+let firstName = document.getElementById("first");
+let lastName = document.getElementById("last");               
+let email = document.getElementById("email");      
+let birthdate=  document.getElementById("birthdate");  
+let quantity= document.getElementById("quantity");  
+let checkbox= document.getElementById("checkbox1");
+let radioInput = document.querySelectorAll('.radio-input')
+let form = document.getElementById('frmData');
+
+form.addEventListener("submit", validate(e))
+
+function validate(e) {
+  e.preventDefault();
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let smallFirst = firstName.nextElementSibling;
+let smallLast = lastName.nextElementSibling;
+let smallEmail = email.nextElementSibling;
+let smallBirthdate = birthdate.nextElementSibling;
+let smallQuantity = quantity.nextElementSibling;
+let smallCheckbox = document.getElementById('errorCheckbox');
+let smallCheckboxCity = document.getElementById('errorCheckboxCity')
 function validate()                                    
 { 
-    let firstName = document.forms["reserve"]["first"];
-    let lastName = document.forms["reserve"]["last"];               
-    let email = document.forms["reserve"]["email"];      
-    let birthdate=  document.forms["reserve"]["birthdate"];  
-    let quantity= document.forms["reserve"]["quantity"];  
-    let checkbox= document.forms["reserve"]["checkbox1"]; 
-    let smallFirst = firstName.nextElementSibling;
-    let smallLast = lastName.nextElementSibling;
-    let smallEmail = email.nextElementSibling;
-    let smallBirthdate = birthdate.nextElementSibling;
-    let smallQuantity = quantity.nextElementSibling;
-    let smallCheckbox = document.getElementById('errorCheckbox');
-    let smallCheckboxCity = document.getElementById('errorCheckboxCity')
-    let radioInput = document.querySelectorAll('.radio-input')
-    const isRadioChecked = Array.from(radioInput).filter(
+    
+    let isRadioChecked = Array.from(radioInput).filter(
       (radioBtn) => radioBtn.checked
     );
 
