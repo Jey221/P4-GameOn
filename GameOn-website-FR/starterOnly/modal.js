@@ -34,132 +34,60 @@ closeBtn.forEach((btn) => btn.addEventListener("click", launchModal2))
 //let fields = document.querySelectorAll('input[required]');// mise en place d'une variable pour les diff element à valider
 //let valid =true;
 
-//mise en place des variable du formulaire
-let firstName = document.getElementById("first");
-let lastName = document.getElementById("last");               
-let email = document.getElementById("email");      
-let birthdate=  document.getElementById("birthdate");  
-let quantity= document.getElementById("quantity");  
-let checkbox= document.getElementById("checkbox1");
-let radioInput = document.querySelectorAll('.radio-input')
-let form = document.getElementById('frmData');
+// La recuperation des elements 
+const form = document.querySelector("#frmData");
+const firstName = document.querySelector('#first');
+const email = document.querySelector('#email');
 
-form.addEventListener("submit", validate(e))
+// Evenements
+form.addEventListener('submit',e=>{
+    e.preventDefault();
 
-function validate(e) {
-  e.preventDefault();
+    form_verify();
+})
+// Fonstions
+function form_verify() {
+    // Obtenir toutes les valeurs des inputs
+    let userValue = form[0].value.trim();
+    const emailValue = email.value.trim();
+    console.log(userValue);
+    // firstName verify
+    if (letterNum < 3) {
+            let message ="firstName doit avoir au moins 3 caractères";
+            setError(firstName,message)
+            console.log(message);
+    } else {
+            setSuccess(firstName);
+    };
+  
 
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let smallFirst = firstName.nextElementSibling;
-let smallLast = lastName.nextElementSibling;
-let smallEmail = email.nextElementSibling;
-let smallBirthdate = birthdate.nextElementSibling;
-let smallQuantity = quantity.nextElementSibling;
-let smallCheckbox = document.getElementById('errorCheckbox');
-let smallCheckboxCity = document.getElementById('errorCheckboxCity')
-function validate()                                    
-{ 
+    // email verify
+    if (emailValue === "") {
+        let message = "Email ne peut pas être vide";
+        setError(email,message);
+    }else if(!email_verify(emailValue)){
+        let message = "Email non valide";
+        setError(email,message);
+    }else{
+        setSuccess(email)
+    };
     
-    let isRadioChecked = Array.from(radioInput).filter(
-      (radioBtn) => radioBtn.checked
-    );
+function setError(elem,message) {
+    const formControl = elem.parentElement;
+    const small = formControl.querySelector('small');
 
-    if (firstName.value.length < 2)                                  
-    { 
-        smallFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";
-        firstName.focus(); 
-        return false; 
-    }  
-    if (lastName.value.length < 2)                                  
-    { 
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ nom.";
-        lastName.focus(); 
-        return false; 
-    }   
-    
-    if (email.value == "")                                   
-    {   
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "";
-        smallEmail.innerHTML= "Vous devez entrer une adresse email valide."; 
-        email.focus(); 
-        return false; 
-    }    
-    if (email.value.indexOf("@", 0) < 0)                 
-    { 
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "";
-        smallEmail.innerHTML= "Vous devez entrer une adresse email valide."; 
-        email.focus(); 
-        return false; 
-    }    
-    if (email.value.indexOf(".", 0) < 0)                 
-    { 
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "";
-        smallEmail.innerHTML = "Vous devez entrer une adresse email valide."; 
-        email.focus(); 
-        return false; 
-    }    
-    if (birthdate.value == "")                           
-    { 
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "";
-        smallEmail.innerHTML = "";
-        smallBirthdate.innerHTML = "Vous devez entrer votre date de naissance."; 
-        birthdate.focus(); 
-        return false; 
-    }    
-    if (quantity.value == "")                        
-    { 
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "";
-        smallEmail.innerHTML = "";
-        smallBirthdate.innerHTML = "";
-        smallQuantity.innerHTML = "Vous devez mettre une valeur."; 
-        quantity.focus(); 
-        return false; 
-    }  
-    if (!isRadioChecked || isRadioChecked.length <= 0) 
-    {
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "";
-        smallEmail.innerHTML = "";
-        smallBirthdate.innerHTML = "";
-        smallQuantity.innerHTML = "";
-        smallCheckboxCity.innerHTML = "Sélectionnez une ville"; 
-        checkbox.focus()
-        return false;
-    }  
-    if (!checkbox.checked) 
-    {
-        smallFirst.innerHTML = "";
-        smallLast.innerHTML = "";
-        smallEmail.innerHTML = "";
-        smallBirthdate.innerHTML = "";
-        smallQuantity.innerHTML = "";
-        smallCheckboxCity.innerHTML = "";
-        smallCheckbox.innerHTML = "Vérifier que vous avez accepter les termes et conditions."; 
-        checkbox.focus()
-        return false;
-    }
+    // Ajout du message d'erreur
+    small.innerText = message
 
-
-    return true;
-     
+    // Ajout de la classe error
+    formControl.classList.add("error");
 }
+
+function setSuccess(elem) {
+    const formControl = elem.parentElement;
+    formControl.className ='success'
+}
+
+function email_verify(email) { 
+    return /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/.test(email);
+}};
