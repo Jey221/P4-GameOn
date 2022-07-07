@@ -207,7 +207,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.invalid {
+.small {
   font-size: 0.4em;
   color: #e54858;
   margin-top: 7px;
