@@ -58,11 +58,10 @@ function validate()
     if (firstName.value.length < 2)                                  
     { 
       smallFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";
-      
       firstName.classList.add("error");
       firstName.focus(); 
       return false; 
-    }  
+    }
     if (lastName.value.length < 2)                                  
     { 
       smallFirst.innerHTML = "";
