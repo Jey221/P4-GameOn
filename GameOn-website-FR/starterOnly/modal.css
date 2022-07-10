@@ -521,7 +521,7 @@ footer {
   }
   .content {
     TOP: 43px;
-    height: 91%;
+    height: 760px;
     border-radius: 10px 10px 0 0;
   }
   .modal-body {
@@ -537,13 +537,18 @@ footer {
   }
   label {
     font-size: 11px;
-    margin-bottom: 6px;
+    margin-bottom: 0px;
   }
   .invalid {
     font-size: 10px;
   }
   .checkbox2-label {
     font-size: 10px;
+  }
+  .btn-submit {
+    font-size: 14px;
+    padding: 6px 61px;
+    margin-top: 6%;
   }
   .copyrights {
     font-size: 12px;
