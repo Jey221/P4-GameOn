@@ -219,35 +219,7 @@ input {
 .text-control.error {
   border: 2px solid #e54858;
 }
-.checkbox-icon.error {
-  border: 2px solid #e54858;
-}
 
-.formData[data-error]::after {
-  content: attr(data-error);
-  font-size: 0.4em;
-  color: #e54858;
-  display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: right;
-  line-height: 0.3;
-  opacity: 0;
-  transition: 0.3s;
-}
-.formData[data-error-visible="true"]::after {
-  opacity: 1;
-}
-.formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
-}
-
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -495,14 +467,32 @@ footer {
   margin: 0 20px;
 }
 @media screen and (max-width: 800px) {
+  #myTopnav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 4% 4% 0% 4%;
+  }
+  .header-logo img {
+    width: 150px;
+  }
+  .main-navbar i {
+    color: red;
+    font-size: 30px;
+  }
+  main {
+    margin-bottom: 0px;
+  }
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 0px;
   }
   .hero-content {
+    min-width: none;
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0px;
   }
   .hero-content::after {
     content: unset;
@@ -511,24 +501,54 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 38px;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
-  }
+    margin-top: 20px;
+    font-size: 14px;
+    }
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
   }
   .hero-section > .btn-signup {
     display: block;
-    margin: 32px auto 10px;
-    padding: 12px 35px;
+    margin: 20px auto 0px;
+    padding: 8px 35px;
+    font-size: 14px;
+  }
+  .content {
+    TOP: 43px;
+    height: 91%;
+    border-radius: 10px 10px 0 0;
+  }
+  .modal-body {
+    margin: 0px auto;
+  }
+  .text-label {
+    font-size: 12px
+  }
+
+  .text-control {
+    height: 34px;
+    font-size: 14px;
+  }
+  label {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  .invalid {
+    font-size: 10px;
+  }
+  .checkbox2-label {
+    font-size: 10px;
   }
   .copyrights {
-    margin-top: 50px;
+    font-size: 12px;
+    margin: 0%;
+    margin-top: 10px;
     text-align: center;
   }
 }
@@ -547,13 +567,20 @@ footer {
 .merci-page {
   display: none;
 }
+.contentMerci {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .merci-page p {
-  margin-bottom: 80%;
-  margin-top: 42%;
-  margin-left: 19%;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 50%;
 }
 
 .merci-page button{
-  margin-left: 39%;
-  margin-bottom: 17%;
+  padding: 15px 90px;
+  margin-top: 50%;
+  margin-bottom: 5%;
 }
