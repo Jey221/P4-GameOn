@@ -57,8 +57,10 @@
           <div class="modal-body">
             <form id="frmData"
               name="reserve"
-              action=""
+              action="index.html"
               method="get"
+              onsubmit="return validate();"
+              novalidate
               >
               <div
                 class="formData">
@@ -69,6 +71,7 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  required
                 />
                 <small class="invalid" id="errorFName"></small><br>
               </div>
@@ -207,7 +210,7 @@
               />
             </form>
           </div>
-          <div class="merci-page">
+          <div class="merci-page" id="merci">
             <div class="contentMerci">
               <p>Merci pour votre inscription</p>
               <button class="btn-signup btn-end">

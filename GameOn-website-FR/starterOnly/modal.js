@@ -12,7 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 let closeBtn = document.querySelectorAll(".close-btn");// mise en place d'une variable pour bouton X
-let merci = document.querySelectorAll(".merci-page")
+
 
 
 // launch modal event
@@ -31,63 +31,70 @@ closeBtn.forEach((btn) => btn.addEventListener("click", launchModal2))
 
 
 // form validate
+//let form = document.getElementById('frmData'); //mise en place variable sur le formulaire
 //let fields = document.querySelectorAll('input[required]');// mise en place d'une variable pour les diff element à valider
 //let valid =true;
 
-// La recuperation des elements 
-const form = document.querySelector("#frmData");
-const firstName = document.querySelector('#first');
-const email = document.querySelector('#email');
 
-// Evenements
-form.addEventListener('submit',e=>{
-    e.preventDefault();
+let firstName = document.getElementById('first');
+let lastName = document.getElementById('last');               
+let email = document.getElementById('email');      
+let birthdate=  document.getElementById('birthdate');  
+let quantity= document.getElementById('quantity');  
+let checkbox= document.getElementById('checkbox1'); 
+let smallFirst = firstName.nextElementSibling;
+let smallLast = lastName.nextElementSibling;
+let smallEmail = email.nextElementSibling;
+let smallBirthdate = birthdate.nextElementSibling;
+let smallQuantity = quantity.nextElementSibling;
+let smallCheckbox = document.getElementById('errorCheckbox');
+let smallCheckboxCity = document.getElementById('errorCheckboxCity')
+let radioInput = document.querySelectorAll('.radio-input')
+const isRadioChecked = Array.from(radioInput).filter((radioBtn) => radioBtn.checked);
 
-    form_verify();
-})
-// Fonstions
-function form_verify() {
-    // Obtenir toutes les valeurs des inputs
-    let userValue = form[0].value.trim();
-    const emailValue = email.value.trim();
-    console.log(userValue);
-    // firstName verify
-    if (letterNum < 3) {
-            let message ="firstName doit avoir au moins 3 caractères";
-            setError(firstName,message)
-            console.log(message);
-    } else {
-            setSuccess(firstName);
-    };
-  
 
-    // email verify
-    if (emailValue === "") {
-        let message = "Email ne peut pas être vide";
-        setError(email,message);
-    }else if(!email_verify(emailValue)){
-        let message = "Email non valide";
-        setError(email,message);
-    }else{
-        setSuccess(email)
-    };
-    
-function setError(elem,message) {
-    const formControl = elem.parentElement;
-    const small = formControl.querySelector('small');
+function validFName(){
+  if (firstName.value.length < 2)
+  {
+    smallFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";
+    firstName.classList.add("error");
+    return false; 
+  }else{
+    smallFirst.innerHTML = "";
+    firstName.classList.remove("error");
+    return true
+  }
+};
+console.log(validFName());
+function validLName(){
+  if (lastName.value.length < 2) 
+  {
+    smallLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ nom.";
+    lastName.classList.add("error");
+    return false; 
+  }else{
+    smallLast.innerHTML = "";
+    lastName.classList.remove("error");
+    return true
+  }
+};
+console.log(validLName());
 
-    // Ajout du message d'erreur
-    small.innerText = message
 
-    // Ajout de la classe error
-    formControl.classList.add("error");
+function validate(){
+  if( (validFName==false) && (validLName==false) ){
+    return false
+  }else{
+    merciPage
+    return true
+  }
+};
+console.log(validate());
+function merciPage(){
+  let form = document.getElementById('frmData'); 
+  let merci = document.getElementById('merci'); 
+  merci.style.display = "block";
+  form.style.display = "none";
 }
+console.log(merciPage);
 
-function setSuccess(elem) {
-    const formControl = elem.parentElement;
-    formControl.className ='success'
-}
-
-function email_verify(email) { 
-    return /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/.test(email);
-}};
