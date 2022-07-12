@@ -489,7 +489,7 @@ footer {
     min-height: 0px;
   }
   .hero-content {
-    min-width: none;
+    min-width: 0;
     background: #fff;
     color: #000;
     padding: 0px;

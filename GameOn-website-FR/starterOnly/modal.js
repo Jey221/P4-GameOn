@@ -29,13 +29,6 @@ function launchModal2() {
 closeBtn.forEach((btn) => btn.addEventListener("click", launchModal2))
 
 
-
-// form validate
-//let form = document.getElementById('frmData'); //mise en place variable sur le formulaire
-//let fields = document.querySelectorAll('input[required]');// mise en place d'une variable pour les diff element à valider
-//let valid =true;
-
-
 // annonce des variables pour le formulaire
 let firstName = document.getElementById('first');
 let lastName = document.getElementById('last');               
@@ -63,7 +56,7 @@ console.log(merci);
 document.getElementById("boutonParti").addEventListener("click",(e) => {
   e.preventDefault();
 
-  // validation Prénom
+  // validation Prénom et création si valide de la variables valid
   if (firstName.value.length < 2) {
     firstName.classList.add("error");
     smallFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";
@@ -74,7 +67,7 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     console.log(valid);
   };
 
-  // validation nom
+  // validation nom et création si valide de la variables valid1
   if (lastName.value.length < 2) {
     lastName.classList.add("error");
     smallLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ nom.";
@@ -85,7 +78,7 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     console.log(valid1);
   };
 
-  // validation email
+  // validation email et création si valide de la variables valid2
   if (email.value == "") {
     email.classList.add("error");
     smallEmail.innerHTML= "Vous devez entrer une adresse email valide.";
@@ -102,7 +95,7 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     console.log(valid2);
   };
 
-  // validation date de naissance
+  // validation date de naissance et création si valide de la variables valid3
   if (birthdate.value == "") {
       birthdate.classList.add("error");
       smallBirthdate.innerHTML = "Vous devez entrer votre date de naissance.";
@@ -113,7 +106,7 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
       console.log(valid3);
   };
 
-  // validation quantité
+  // validation quantité et création si valide de la variables valid4
   if (quantity.value == "") {
     quantity.classList.add("error");
     smallQuantity.innerHTML = "Vous devez mettre une valeur.";
@@ -124,7 +117,7 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     console.log(valid4);
   };
 
-  // validation ville
+  // validation ville et création si valide de la variables valid5
   const isRadioChecked = Array.from(radioInput).filter(
     (radioBtn) => radioBtn.checked
   );
@@ -136,7 +129,7 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     console.log(valid5);
   };
 
-  // validation condition d'utilisation
+  // validation condition d'utilisation et création si valide de la variables valid6
   if (!checkbox.checked) {
     smallCheckbox.innerHTML = "Vérifier que vous avez accepter les termes et conditions.";
   }else{
@@ -145,7 +138,7 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     console.log(valid5);
   };
 
-  // lancement page merci
+  // lancement page merci après vérification des variables
   if (valid==true && valid1==true && valid2==true && valid3==true && valid4==true && valid5==true && valid6==true){
     merci.style.display ="block";
     body.style.display ="none";
