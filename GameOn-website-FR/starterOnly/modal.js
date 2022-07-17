@@ -49,7 +49,6 @@ let smallCheckboxCity = document.getElementById('errorCheckboxCity')
 // annonce des variables pour fin du formulaire
 let merci = document.getElementById("merci");
 let body = document.getElementById("mBody")
-console.log(merci);
 
 // annonce de la fonction de validation du formulaire
 // blocage de l'action de soumission de formulaire
@@ -64,7 +63,6 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     smallFirst.innerHTML = "";
     firstName.classList.remove("error");
     var valid = true;
-    console.log(valid);
   };
 
   // validation nom et création si valide de la variables valid1
@@ -75,7 +73,6 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     lastName.classList.remove("error");
     smallLast.innerHTML = "";
     var valid1 = true;
-    console.log(valid1);
   };
 
   // validation email et création si valide de la variables valid2
@@ -92,7 +89,6 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     email.classList.remove("error");
     smallEmail.innerHTML = "";
     var valid2 = true;
-    console.log(valid2);
   };
 
   // validation date de naissance et création si valide de la variables valid3
@@ -103,7 +99,6 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
       birthdate.classList.remove("error");
       smallBirthdate.innerHTML = "";
       var valid3 = true;
-      console.log(valid3);
   };
 
   // validation quantité et création si valide de la variables valid4
@@ -114,7 +109,6 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
     quantity.classList.remove("error");
     smallQuantity.innerHTML = "";
     var valid4 = true;
-    console.log(valid4);
   };
 
   // validation ville et création si valide de la variables valid5
@@ -126,7 +120,6 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
   }else{
     smallCheckboxCity.innerHTML = "";
     var valid5 = true;
-    console.log(valid5);
   };
 
   // validation condition d'utilisation et création si valide de la variables valid6
@@ -135,7 +128,6 @@ document.getElementById("boutonParti").addEventListener("click",(e) => {
   }else{
     smallCheckbox.innerHTML = "";
     var valid6 = true;
-    console.log(valid5);
   };
 
   // lancement page merci après vérification des variables
